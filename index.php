@@ -15,10 +15,15 @@
 
 
     <h1 class="text-center p-3">CRUD</h1>
-
     <div class="container-fluid row">
-        <form class="col-4 p-3">
+        <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Resgistro De Usuario</h3>
+
+            <?php
+            include ("models/connection.php");
+            include ("controller/users_register.php");
+            ?>
+
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre">
@@ -37,10 +42,10 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" class="form-control" name="nombre">
+                <input type="email" class="form-control" name="email">
             </div>
 
-            <button type="submit" class="btn btn-primary" value="ok">Registrar</button>
+            <button type="submit" class="btn btn-primary" value="ok" name="btnregistrar">Registrar</button>
         </form>
 
         <div class="col-8 p-4">
@@ -57,12 +62,10 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     include ("models/connection.php");
                     $sql = $connection->query(" select * from usuario ");
                     while ($dates = $sql->fetch_object()) { ?>
-
                         <tr>
                             <td><?= $dates->id ?></td>
                             <td><?= $dates->nombre ?></td>
@@ -75,11 +78,8 @@
                                 <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
                             </td>
                         </tr>
-
                     <?php }
                     ?>
-
-
                 </tbody>
             </table>
         </div>
