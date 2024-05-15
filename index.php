@@ -57,18 +57,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-user-pen"></i></a>
-                            <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
-                        </td>
-                    </tr>
+
+                    <?php
+                    include ("models/connection.php");
+                    $sql = $connection->query(" select * from usuario ");
+                    while ($dates = $sql->fetch_object()) { ?>
+
+                        <tr>
+                            <td><?= $dates->id ?></td>
+                            <td><?= $dates->nombre ?></td>
+                            <td><?= $dates->apellido ?></td>
+                            <td><?= $dates->dni ?></td>
+                            <td><?= $dates->fecha_nac ?></td>
+                            <td><?= $dates->email ?></td>
+                            <td>
+                                <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-user-pen"></i></a>
+                                <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
+                            </td>
+                        </tr>
+
+                    <?php }
+                    ?>
+
+
                 </tbody>
             </table>
         </div>
