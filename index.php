@@ -12,16 +12,27 @@
 
 <body>
 
+    <script>
+        function eliminar() {
+            let respuesta = confirm("SEGURO QUE DESEAS ELIMINAR?")
+            return respuesta
+        }
+    </script>
+
 
 
     <h1 class="text-center p-3">CRUD</h1>
+    <?php
+    include ("models/connection.php");
+    include ("controller/delete_register.php");
+    ?>
     <div class="container-fluid row">
         <form class="col-4 p-3" method="POST">
             <h3 class="text-center text-secondary">Resgistro De Usuario</h3>
 
             <?php
-            include ("models/connection.php");
             include ("controller/users_register.php");
+
             ?>
 
             <div class="mb-3">
@@ -76,7 +87,8 @@
                             <td>
                                 <a href="modify_register.php?id=<?= $dates->id ?>" class="btn btn-small btn-warning"><i
                                         class="fa-solid fa-user-pen"></i></a>
-                                <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
+                                <a onclick="return eliminar()" href="index.php?id=<?= $dates->id ?>"
+                                    class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
                             </td>
                         </tr>
                     <?php }
