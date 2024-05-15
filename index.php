@@ -74,7 +74,8 @@
                             <td><?= $dates->fecha_nac ?></td>
                             <td><?= $dates->email ?></td>
                             <td>
-                                <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-user-pen"></i></a>
+                                <a href="modify_register.php?id=<?= $dates->id ?>" class="btn btn-small btn-warning"><i
+                                        class="fa-solid fa-user-pen"></i></a>
                                 <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-minus"></i></a>
                             </td>
                         </tr>
